@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <header style="text-align: center; font-size: xx-large; background-color: aliceblue">
+        Giới thiệu các hiệu ứng thông dụng của jQuery
+    </header>
+    <div class="row">
+        <div id="list-example" class="col-md-2 list-group-item list-group-item-action">
+            <div class=" sticky-top ">
+                <div class="nav flex-sm-column">
+                    <a href="#list-item-1" class="nav-link ">draggable</a>
+                    <a href="#list-item-2" class="nav-link">droppable</a>
+                    <a href="#list-item-3" class="nav-link">resizable</a>
+                    <a href="#list-item-4" class="nav-link">selectable</a>
+                    <a href="#list-item-5" class="nav-link">sortable</a>
+                    <a href="#list-item-6" class="nav-link">accordion</a>
+                    <a href="#list-item-7" class="nav-link">autocomplete</a>
+                    <a href="#list-item-8" class="nav-link">datepicker</a>
+                    <a href="#list-item-9" class="nav-link">dialog</a>
+                    <a href="#list-item-10" class="nav-link">slider</a>
+                    <a href="#list-item-11" class="nav-link">progressbar</a>
+                    <a href="#list-item-12" class="nav-link">spinner</a>
+                    <a href="#list-item-13" class="nav-link">tabs</a>
+                    <a href="#list-item-14" class="nav-link">add class</a>
+                    <a href="#list-item-15" class="nav-link">remove class</a>
+                </div>
+            </div>
+        </div>
+        <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-md">
+            <h3 id="list-item-1">draggable</h3>
+            <div style="margin-left: 30px">
+                <p>Allow elements to be moved using the mouse.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+                    <pre><xmp>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #draggable {
+      width: 150px;
+      height: 150px;
+      padding: 0.5em;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#draggable").draggable();
+  });
+  </script>
+</head>
+<body>
+
+<div id="draggable" class="ui-widget-content">
+  <p>Drag me around</p>
+</div>
+
+
+</body>
+</html>
+                    </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/draggable/">Result</a></p>
+            </div>
+            <h3 id="list-item-2">droppable</h3>
+            <div style="margin-left: 30px">
+                <p> Create targets for draggable elements.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+                <pre><xmp>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #draggable {
+      width: 100px;
+      height: 100px;
+      padding: 0.5em;
+      float: left;
+      margin: 10px 10px 10px 0;
+  }
+
+  #droppable {
+      width: 150px;
+      height: 150px;
+      padding: 0.5em;
+      float: left;
+      margin: 10px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#draggable").draggable();
+      $("#droppable").droppable({
+          drop: function (event, ui) {
+              $(this)
+                  .addClass("ui-state-highlight")
+                  .find("p")
+                  .html("Dropped!");
+          }
+      });
+  });
+  </script>
+</head>
+<body>
+
+<div id="draggable" class="ui-widget-content">
+  <p>Drag me to my target</p>
+</div>
+
+<div id="droppable" class="ui-widget-header">
+  <p>Drop here</p>
+</div>
+
+
+</body>
+</html>
+                </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/droppable/">Result</a></p>
+            </div>
+            <h3 id="list-item-3">resizable</h3>
+            <div style="margin-left: 30px">
+                <p>Change the size of an element using the mouse.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+                <pre><xmp>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Resizable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #resizable {
+      width: 150px;
+      height: 150px;
+      padding: 0.5em;
+  }
+
+  #resizable h3 {
+      text-align: center;
+      margin: 0;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#resizable").resizable();
+  });
+  </script>
+</head>
+<body>
+
+<div id="resizable" class="ui-widget-content">
+  <h3 class="ui-widget-header">Resizable</h3>
+</div>
+
+
+</body>
+</html>
+                </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/resizable/">Result</a></p>
+            </div>
+            <h3 id="list-item-4">selectable</h3>
+            <div style="margin-left: 30px">
+                <p>Use the mouse to select elements, individually or in a group.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+                <pre><xmp>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Selectable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <style>
+  #feedback {
+      font-size: 1.4em;
+  }
+
+  #selectable .ui-selecting {
+      background: #FECA40;
+  }
+
+  #selectable .ui-selected {
+      background: #F39814;
+      color: white;
+  }
+
+  #selectable {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 60%;
+  }
+
+  #selectable li {
+      margin: 3px;
+      padding: 0.4em;
+      font-size: 1.4em;
+      height: 18px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#selectable").selectable();
+  });
+  </script>
+</head>
+<body>
+
+<ol id="selectable">
+  <li class="ui-widget-content">Item 1</li>
+  <li class="ui-widget-content">Item 2</li>
+  <li class="ui-widget-content">Item 3</li>
+  <li class="ui-widget-content">Item 4</li>
+  <li class="ui-widget-content">Item 5</li>
+  <li class="ui-widget-content">Item 6</li>
+  <li class="ui-widget-content">Item 7</li>
+</ol>
+
+
+</body>
+</html>
+                </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/selectable/">Result</a></p>
+            </div>
+            <h3 id="list-item-5">sortable</h3>
+            <div style="margin-left: 30px">
+                <p>Reorder elements in a list or grid using the mouse.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+                <pre><xmp>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Sortable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #sortable {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 60%;
+  }
+
+  #sortable li {
+      margin: 0 3px 3px 3px;
+      padding: 0.4em;
+      padding-left: 1.5em;
+      font-size: 1.4em;
+      height: 18px;
+  }
+
+  #sortable li span {
+      position: absolute;
+      margin-left: -1.3em;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#sortable").sortable();
+      $("#sortable").disableSelection();
+  });
+  </script>
+</head>
+<body>
+
+<ul id="sortable">
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+</ul>
+
+
+</body>
+</html>
+                </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/sortable/">Result</a></p>
+            </div>
+            <h3 id="list-item-6">accordion</h3>
+            <div style="margin-left: 30px">
+                <p>Displays collapsible content panels for presenting information in a limited amount of space.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+                <pre><xmp>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Accordion - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#accordion").accordion();
+  });
+  </script>
+</head>
+<body>
+
+<div id="accordion">
+  <h3>Section 1</h3>
+  <div>
+    <p>
+    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+    </p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p>
+    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+    suscipit faucibus urna.
+    </p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+    mauris vel est.
+    </p>
+    <p>
+    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+    inceptos himenaeos.
+    </p>
+  </div>
+</div>
+
+
+</body>
+</html>
+                </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/accordion/">Result</a></p>
+            </div>
+            <h3 id="list-item-7">autocomplete</h3>
+            <div style="margin-left: 30px">
+                <p>Enables users to quickly find and select from a pre-populated list of values as they type, leveraging
+                    searching and filtering.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+                <pre><xmp>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      var availableTags = [
+          "ActionScript",
+          "AppleScript",
+          "Asp",
+          "BASIC",
+          "C",
+          "C++",
+          "Clojure",
+          "COBOL",
+          "ColdFusion",
+          "Erlang",
+          "Fortran",
+          "Groovy",
+          "Haskell",
+          "Java",
+          "JavaScript",
+          "Lisp",
+          "Perl",
+          "PHP",
+          "Python",
+          "Ruby",
+          "Scala",
+          "Scheme"
+      ];
+      $("#tags").autocomplete({
+          source: availableTags
+      });
+  });
+  </script>
+</head>
+<body>
+
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
+
+
+</body>
+</html>
+                </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/autocomplete/">Result</a></p>
+            </div>
+            <h3 id="list-item-8">datepicker</h3>
+            <div style="margin-left: 30px">
+                <p>Select a date from a popup or inline calendar</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+                <pre><xmp>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#datepicker").datepicker();
+  });
+  </script>
+</head>
+<body>
+
+<p>Date: <input type="text" id="datepicker"></p>
+</body>
+</html>
+                </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/datepicker/">Result</a></p>
+            </div>
+            <h3 id="list-item-9">dialog</h3>
+            <div style="margin-left: 30px">
+                <p>Open content in an interactive overlay.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+                <pre><xmp>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Dialog - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#dialog").dialog();
+  });
+  </script>
+</head>
+<body>
+
+<div id="dialog" title="Basic dialog">
+  <p>This is the default dialog which is useful for displaying information.
+      The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+
+</body>
+</html>
+                </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/datepicker/">Result</a></p>
+            </div>
+
+            <h3 id="list-item-10">slider</h3>
+            <div style="margin-left: 30px">
+                <p>Drag a handle to select a numeric value.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+            <pre><xmp>
+            <!doctype html>
+            <html lang="en">
+            <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>jQuery UI Slider - Default functionality</title>
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="/resources/demos/style.css">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+            $(function () {
+                $("#slider").slider();
+            });
+            </script>
+            </head>
+            <body>
+
+            <div id="slider"></div>
+
+
+            </body>
+            </html>
+            </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/slider/">Result</a></p>
+            </div>
+            <h3 id="list-item-11">progressbar</h3>
+            <div style="margin-left: 30px">
+                <p>Display status of a determinate or indeterminate process.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+            <pre><xmp>
+            <!doctype html>
+            <html lang="en">
+            <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>jQuery UI Progressbar - Default functionality</title>
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="/resources/demos/style.css">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+            $(function () {
+                $("#progressbar").progressbar({
+                    value: 37
+                });
+            });
+            </script>
+            </head>
+            <body>
+
+            <div id="progressbar"></div>
+
+
+            </body>
+            </html>
+            </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/progressbar/">Result</a></p>
+            </div>
+            <h3 id="list-item-12">spinner</h3>
+            <div style="margin-left: 30px">
+                <p>Enhance a text input for entering numeric values, with up/down buttons and arrow key handling.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+            <pre><xmp>
+            <!doctype html>
+            <html lang="en">
+            <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>jQuery UI Spinner - Default functionality</title>
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="/resources/demos/style.css">
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
+            <script>
+            $(function () {
+                var spinner = $("#spinner").spinner();
+
+                $("#disable").on("click", function () {
+                    if (spinner.spinner("option", "disabled")) {
+                        spinner.spinner("enable");
+                    } else {
+                        spinner.spinner("disable");
+                    }
+                });
+                $("#destroy").on("click", function () {
+                    if (spinner.spinner("instance")) {
+                        spinner.spinner("destroy");
+                    } else {
+                        spinner.spinner();
+                    }
+                });
+                $("#getvalue").on("click", function () {
+                    alert(spinner.spinner("value"));
+                });
+                $("#setvalue").on("click", function () {
+                    spinner.spinner("value", 5);
+                });
+
+                $("button").button();
+            });
+            </script>
+            </head>
+            <body>
+
+            <p>
+            <label for="spinner">Select a value:</label>
+            <input id="spinner" name="value">
+            </p>
+
+            <p>
+            <button id="disable">Toggle disable/enable</button>
+            <button id="destroy">Toggle widget</button>
+            </p>
+
+            <p>
+            <button id="getvalue">Get value</button>
+            <button id="setvalue">Set value to 5</button>
+            </p>
+
+
+            </body>
+            </html>
+            </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/spinner/">Result</a></p>
+            </div>
+            <h3 id="list-item-14">add class</h3>
+            <div style="margin-left: 30px">
+                <p>Adds class(es) to elements while animating all style changes.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+            <pre><xmp>
+            <!doctype html>
+            <html lang="en">
+            <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>jQuery UI Effects - addClass demo</title>
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <link rel="stylesheet" href="/resources/demos/style.css">
+            <style>
+            .toggler {
+                width: 500px;
+                height: 200px;
+                position: relative;
+            }
+
+            #button {
+                padding: .5em 1em;
+                text-decoration: none;
+            }
+
+            #effect {
+                width: 240px;
+                padding: 1em;
+                border: 1px solid #000;
+                background: #eee;
+                color: #333;
+            }
+
+            .newClass {
+                text-indent: 40px;
+                letter-spacing: .4em;
+                width: 410px;
+                height: 120px;
+                padding: 30px;
+                margin: 10px;
+                font-size: 1.1em;
+            }
+            </style>
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+            $(function () {
+                $("#button").on("click", function () {
+                    $("#effect").addClass("newClass", 1000, callback);
+                });
+
+                function callback() {
+                    setTimeout(function () {
+                        $("#effect").removeClass("newClass");
+                    }, 1500);
+                }
+            });
+            </script>
+            </head>
+            <body>
+
+            <div class="toggler">
+            <div id="effect" class="ui-corner-all">
+            Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede.
+            </div>
+            </div>
+
+            <button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+
+
+                    </body>
+                    </html>
+            </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/addClass/">Result</a></p>
+            </div>
+            <h3 id="list-item-15">remove class</h3>
+            <div style="margin-left: 30px">
+                <p>Removes class(es) from elements while animating all style changes.</p>
+                <b>Example:</b>
+                <div style="background: rgb(238,238,238)">
+            <pre><xmp>
+            <!doctype html>
+            <html lang="en">
+            <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>jQuery UI Effects - removeClass Demo</title>
+            <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+            <script src="../../external/jquery/jquery.js"></script>
+            <script src="../../ui/effect.js"></script>
+            <link rel="stylesheet" href="/resources/demos/style.css">
+            <style>
+            .toggler {
+                width: 500px;
+                height: 200px;
+                position: relative;
+            }
+
+            #button {
+                padding: .5em 1em;
+                text-decoration: none;
+            }
+
+            #effect {
+                position: relative;
+                width: 240px;
+                padding: 1em;
+                letter-spacing: 0;
+                font-size: 1.2em;
+                border: 1px solid #000;
+                background: #eee;
+                color: #333;
+            }
+
+            .newClass {
+                text-indent: 40px;
+                letter-spacing: .4em;
+                width: 410px;
+                height: 100px;
+                padding: 30px;
+                margin: 10px;
+                font-size: 1.6em;
+            }
+            </style>
+            <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script>
+            $(function () {
+                $("#button").on("click", function () {
+                    $("#effect").removeClass("newClass", 1000, callback);
+                });
+
+                function callback() {
+                    setTimeout(function () {
+                        $("#effect").addClass("newClass");
+                    }, 1500);
+                }
+            });
+            </script>
+            </head>
+            <body>
+
+            <div class="toggler">
+            <div id="effect" class="newClass ui-corner-all">
+            Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede.
+            </div>
+            </div>
+
+            <button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+
+
+                </body>
+                </html>
+            </xmp></pre>
+                </div>
+                <p><a href="https://jqueryui.com/removeClass/">Result</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+</html>
